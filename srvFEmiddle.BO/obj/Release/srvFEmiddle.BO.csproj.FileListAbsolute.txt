@@ -1,0 +1,7 @@
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle.BO\bin\Release\srvFEmiddle.BO.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle.BO\bin\Release\srvFEmiddle.BO.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle.BO\bin\Release\comBusinessBE.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle.BO\bin\Release\comBusinessBE.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle.BO\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle.BO\obj\Release\srvFEmiddle.BO.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle.BO\obj\Release\srvFEmiddle.BO.pdb

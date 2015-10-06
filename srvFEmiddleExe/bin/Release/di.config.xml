@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+
+  <object name="pluginComponentesTraspasoDoc" singleton="true" type="System.Collections.Generic.List&lt;comBusinessBE.BI.IOperacion>, mscorlib">
+    <constructor-arg>
+      <list element-type="comBusinessBE.BI.IOperacion, comBusinessBE">
+        <ref object="pluginFacturaVentaCHL"/>
+		    <ref object="pluginFacturaVentaCLK"/>
+        <ref object="pluginFacturaVentaExentaCHL"/>
+		    <ref object="pluginFacturaVentaExentaCLK"/>
+        <ref object="pluginNCVentaCHL"/>
+		    <ref object="pluginNCVentaCLK"/>
+        <ref object="pluginNDVentaCHL"/>
+		    <ref object="pluginNDVentaCLK"/>
+        <ref object="pluginGuiaDespachoCHL"/>
+		    <ref object="pluginGuiaDespachoCHL"/>
+      </list>
+    </constructor-arg>
+  </object>
+<!--******************************* Plugins ***********************************************************-->
+  <object name="pluginFacturaVentaCHL" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosFacturaVentaCHL" />
+        <property name="oConnectionBD" ref="refConnectionDBCHL" />
+  </object>
+
+  <object name="pluginFacturaVentaCLK" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosFacturaVentaCLK" />
+        <property name="oConnectionBD" ref="refConnectionDBCLK" />
+  </object>
+
+  <object name="pluginFacturaVentaExentaCHL" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosFacturaVentaExentaCHL" />
+        <property name="oConnectionBD" ref="refConnectionDBCHL" />
+  </object>
+
+  <object name="pluginFacturaVentaExentaCLK" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosFacturaVentaExentaCLK" />
+        <property name="oConnectionBD" ref="refConnectionDBCLK" />
+  </object>
+
+  <object name="pluginNCVentaCHL" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosNCVentaCHL" />
+        <property name="oConnectionBD" ref="refConnectionDBCHL" />
+  </object>
+
+  <object name="pluginNCVentaCLK" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosNCVentaCLK" />
+        <property name="oConnectionBD" ref="refConnectionDBCLK" />
+  </object>
+
+  <object name="pluginNDVentaCHL" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosNDVentaCHL" />
+        <property name="oConnectionBD" ref="refConnectionDBCHL" />
+  </object>
+
+  <object name="pluginNDVentaCLK" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosNDVentaCLK" />
+        <property name="oConnectionBD" ref="refConnectionDBCLK" />
+  </object>
+
+  <object name="pluginGuiaDespachoCHL" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosGuiaDespachoCHL" />
+        <property name="oConnectionBD" ref="refConnectionDBCHL" />
+  </object>
+
+  <object name="pluginGuiaDespachoCLK" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosGuiaDespachoCLK" />
+        <property name="oConnectionBD" ref="refConnectionDBCLK" />
+  </object>
+<!--******************************* Parametros ***********************************************************-->
+  <object id="refParametrosFacturaVentaCHL"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CHL_SIGNAT"/>
+    <property name="sInPathProcessed" value="CHL_SIGPRC"/>
+    <property name="sInPathError" value="CHL_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosFacturaVentaCLK"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CLK_SIGNAT"/>
+    <property name="sInPathProcessed" value="CLK_SIGPRC"/>
+    <property name="sInPathError" value="CLK_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosFacturaVentaExentaCHL"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CHL_SIGNAT"/>
+    <property name="sInPathProcessed" value="CHL_SIGPRC"/>
+    <property name="sInPathError" value="CHL_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosFacturaVentaExentaCLK"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CLK_SIGNAT"/>
+    <property name="sInPathProcessed" value="CLK_SIGPRC"/>
+    <property name="sInPathError" value="CLK_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosNCVentaCHL"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CHL_SIGNAT"/>
+    <property name="sInPathProcessed" value="CHL_SIGPRC"/>
+    <property name="sInPathError" value="CHL_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosNCVentaCLK"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CLK_SIGNAT"/>
+    <property name="sInPathProcessed" value="CLK_SIGPRC"/>
+    <property name="sInPathError" value="CLK_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosNDVentaCHL"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CHL_SIGNAT"/>
+    <property name="sInPathProcessed" value="CHL_SIGPRC"/>
+    <property name="sInPathError" value="CHL_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosNDVentaCLK"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CLK_SIGNAT"/>
+    <property name="sInPathProcessed" value="CLK_SIGPRC"/>
+    <property name="sInPathError" value="CLK_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosGuiaDespachoCHL"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CHL_SIGNAT"/>
+    <property name="sInPathProcessed" value="CHL_SIGPRC"/>
+    <property name="sInPathError" value="CHL_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+
+  <object id="refParametrosGuiaDespachoCLK"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://ATCOCHL"/>
+    <property name="sInPathWork" value="CLK_SIGNAT"/>
+    <property name="sInPathProcessed" value="CLK_SIGPRC"/>
+    <property name="sInPathError" value="CLK_SIGERR"/>
+    <property name="sInUsuarioFTP" value="chlsigna"/>
+    <property name="sInPasswordFTP" value="signature15"/>
+    <property name="sOutPath" value="ftp://10.111.16.223"/>
+    <property name="sOutUsuarioFTP" value="as400inbox"/>
+    <property name="sOutPasswordFTP" value="factura.2015"/>
+  </object>
+<!--******************************* Conexiones a las bases de datos- ********************************************************-->
+  <!-- Objetos basicos para persistencia en BD-->
+  <!-- Configuracion de conexiones a BdD -->
+  <object id="refConnectionDBCHL" type="srvFEmiddle.BD.ooConnectionBD, srvFEmiddle.BD">
+    <property name="sDSNServer" value="BPCS"/>
+    <property name="sUser" value="CHLNOTES"/>
+    <property name="sPassword" value="weq1"/>
+    <property name="sTable" value="CHLPRDO.SIICAB"/>
+  </object>
+
+  <object id="refConnectionDBCLK" type="srvFEmiddle.BD.ooConnectionBD, srvFEmiddle.BD">
+    <property name="sDSNServer" value="BPCS"/>
+    <property name="sUser" value="chlsigna"/>
+    <property name="sPassword" value="signature15"/>
+    <property name="sTable" value="CLKPRDO.SIICAB"/>
+  </object>
+  <!-- Fin Objetos basicos para persistencia en BD-->
+
+</objects>

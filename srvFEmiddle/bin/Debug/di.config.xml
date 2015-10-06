@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+
+  <object name="pluginComponentesTraspasoDoc" singleton="true" type="System.Collections.Generic.List&lt;comBusinessBE.BI.IOperacion>, mscorlib">
+    <constructor-arg>
+      <list element-type="comBusinessBE.BI.IOperacion, comBusinessBE">
+        <ref object="pluginFacturaVenta"/>
+        <!--<ref object="pluginNCVenta"/>
+        <ref object="pluginNDVenta"/>-->
+      </list>
+    </constructor-arg>
+  </object>
+  
+  <object name="pluginFacturaVenta" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosFacturaVenta" />
+        <property name="oConnectionBD" ref="refConnectionDB" />
+  </object>
+
+  <object id="refParametrosFacturaVenta"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://10.0.1.15/ftp"/>
+    <property name="sInPathWork" value="/FV/Work/"/>
+    <property name="sInPathProcessed" value="/FV/Processed/"/>
+    <property name="sInPathError" value="/FV/Error/"/>
+    <property name="sInUsuarioFTP" value="ftpusuario"/>
+    <property name="sInPasswordFTP" value="contrasenaftp2"/>
+    <property name="sOutPath" value="ftp://10.0.1.18/FV/"/>
+    <property name="sOutUsuarioFTP" value="ftppi"/>
+    <property name="sOutPasswordFTP" value="passwordpi"/>
+  </object>
+  
+
+  <object name="pluginNCVenta" singleton="true" type="srvFEmiddle.BO.ooNotaCreditoVentaBO, srvFEmiddle.BO">
+    <property name="oInfoNotaCreditoVenta" ref="refParametrosNotaCreditoVenta" />
+    <property name="oConnectionBD" ref="refConnectionDB" />
+  </object>
+
+  <object name="pluginNDVenta" singleton="true" type="srvFEmiddle.BO.ooNotaDebitoVentaBO, srvFEmiddle.BO">
+    <property name="oInfoNotaDebitoVenta" ref="refParametrosNotaDebitoVenta" />
+    <property name="oConnectionBD" ref="refConnectionDB" />
+  </object>
+
+  <object id="refParametrosNotaCreditoVenta"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://10.0.1.10/ftp"/>
+    <property name="sInPathWork" value="/NC/Work/"/>
+    <property name="sInPathProcessed" value="/NC/Processed/"/>
+    <property name="sInPathError" value="/NC/Error/"/>
+    <property name="sInUsuarioFTP" value="ftpusuario"/>
+    <property name="sInPasswordFTP" value="contrasenaftp2"/>
+    <property name="sOutPath" value="ftp://10.0.1.18/NC/"/>
+    <property name="sOutUsuarioFTP" value="ftppi"/>
+    <property name="sOutPasswordFTP" value="passwordpi"/>
+  </object>
+
+  <object id="refParametrosNotaDebitoVenta"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://10.0.1.10/ftp"/>
+    <property name="sInPathWork" value="/ND/Work/"/>
+    <property name="sInPathProcessed" value="/ND/Processed/"/>
+    <property name="sInPathError" value="/ND/Error/"/>
+    <property name="sInUsuarioFTP" value="ftpusuario"/>
+    <property name="sInPasswordFTP" value="contrasenaftp2"/>
+    <property name="sOutPath" value="ftp://10.0.1.18/ND/"/>
+    <property name="sOutUsuarioFTP" value="ftppi"/>
+    <property name="sOutPasswordFTP" value="passwordpi"/>
+  </object>
+
+  <!--- Conexiones a las bases de datos-->
+  <!-- Objetos basicos para persistencia en BD-->
+  <!-- Configuracion de conexiones a BdD -->
+  <object id="refConnectionDB" type="srvFEmiddle.BD.ooConnectionBD, srvFEmiddle.BD">
+    <property name="sDSNServer" value="BPCS"/>
+    <property name="sUser" value="CHLNOTES"/>
+    <property name="sPassword" value="weq1"/>
+    <property name="sTable" value="BPCSJAV.SIICAB"/>
+  </object>
+  <!-- Fin Objetos basicos para persistencia en BD-->
+
+</objects>
+
+
+
+
+

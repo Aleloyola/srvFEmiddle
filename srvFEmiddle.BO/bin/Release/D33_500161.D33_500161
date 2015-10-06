@@ -1,0 +1,102 @@
+<TipoDTE>33
+<Folio>500161
+<FchEmis>2015-09-08
+<IndNoRebaja>
+<TipoDespacho>
+<IndTraslado>
+<IndServicio>
+<MntBruto>
+<FmaPago>2
+<FmaPagExp>9
+<FchCancel>2015-10-18
+<MntCancel>
+<SaldoInsol>0
+<FchPago>2015-10-18
+<MntPago>000000125164200
+<GlosaPagos>
+<MedioPago>
+<TipoCtaPago>
+<NumCtaPago>
+<BcoPago>
+<TermPagoCdg>11
+<TermPagoGlosa>30 Dias fecha F
+<TermPagoDias>
+<FchVenc>2015-10-18
+<RUTEmisor>91762000-8
+<RznSoc>ATLAS COPCO CHILENA S.A.C.
+<GiroEmis>IMPORT.FABRIC.COMERCIALIZ.ARRIENDO Y REPAR.DE MAQUIN.PARA LA IND.MINERA Y CONST.
+<Telefono>(56-2)24423600
+<Acteco>29210
+<CdgTraslado>
+<FolioAut>
+<FchAut>
+<DirOrigen>ATT. CAMILO BARRIENTOS
+<CmnaOrigen>LA FARFANA  400 MODULO G
+<CiudadOrigen>SANTIAGO
+<CdgVendedor>001115
+<RUTRecep>96825130-9
+<CdgIntRecep>
+<RznSocRecep>FERROVIAL AGROMAN CHILE S.A.
+<GiroRecep>OBRAS DE        INGENIERIA
+<Contacto>
+<CorreoRecep>
+<DirRecep>ANDRES BELLO 2711 PISO 18
+<CmnaRecep>LAS CONDES
+<CiudadRecep>SANTIAGO
+<DirDest>ANDRES BELLO 2711 PISO 18
+<CmnaDest>LAS CONDES
+<CiudadDest>SANTIAGO
+<TpoMoneda>CLP
+<MntNeto>000000105180000
+<MntExe>0
+<TasaIVA>19
+<IVA>000000019984200
+<MntTotal>000000125164200
+<VlrPagar>
+<TpoMoneda>
+<TpoCambio>
+<MntNetoOtrMnda>
+<MntExeOtrMnda>
+<Codbarrabcochile>000100330000000000005001619001
+<Notas> NO CONSTITUYE VENTA SOLO PARA EFECTOS DE TRASLADO FAENA LOS CONDORES-TALCA 01 MODULO QC4002 02 ELECTROVALVULAS CONDUCTOR: FRANCO LAZO ROSALES C.I: 11.866.685-2 TELEFONO: 09-66871422 PLACA PATENTE: FFTT-82
+<Impresion>CM10A
+<Numorden>000079
+<Codclienteerp>017176
+
+
+
+
+
+<NroLinDet> <TpoCodigo> <VlrCodigo> <TpoCodigo> <VlrCodigo> <TpoCodigo> <VlrCodigo> <IndExe> <NmbItem> <DscItem> <QtyItem> <UnmdItem> <PrcItem> <PrcOtrMon> <Moneda> <FctConv> <DctoOtrMnda> <MontoItemOtrMnda> <DescuentoPct> <DescuentoMonto><MontoItem>
+0001 INT1       HF59000117                                                                                                                        0 QAS 250 SERIE ESF501322                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   000000000000000100      000000000020000000                                                                                                  000000000020000000
+0002 INT1       HF59000118                                                                                                                        0 QAS 250 SERIE ESF501323                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   000000000000000100      000000000020000000                                                                                                  000000000020000000
+0003 INT1       HF59000119                                                                                                                        0 QAS 250 SERIE ESF501324                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   000000000000000100      000000000020000000                                                                                                  000000000020000000
+0004 INT1       HF59000120                                                                                                                        0 QAS 250 SERIE ESF501327                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   000000000000000100      000000000020000000                                                                                                  000000000020000000
+0005 INT1       HF59000129                                                                                                                        0 QAS 325 SERIE ESF501329                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   000000000000000100      000000000025000000                                                                                                  000000000025000000
+0006 INT1       TRASLADO                                                                                                                          0 NO CONSTITUYE VENTA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       000000000000000100      000000000000180000                                                                                                  000000000000180000
+0000                                                                                                                                              0                                                                                   NO CONSTITUYE VENTA SOLO PARA EFECTOS DE TRASLADO FAENA LOS CONDORES-TALCA 01 MODULO QC4002 02 ELECTROVALVULAS CONDUCTOR: FRANCO LAZO ROSALES C.I: 11.866.685-2 TELEFONO: 09-66871422 PLACA PATENTE: FFTT-82                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            000000000000000000      000000000000000000 000000000000000000     0000000000 000000000000000000 000000000000000000                          000000000000000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<NroLinDR> <TpoMov> <GlosaDR> <TpoValor> <ValorDR> <ValorDROtrMnda> <IndExeDR>
+
+
+
+
+<NroLinRef> <TpoDocRef> <IndGlobal> <FolioRef> <FchRef> <CodRef> <RazonRef>
+
+
+
+
+

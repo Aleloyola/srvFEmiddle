@@ -1,0 +1,13 @@
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\srvFEmiddle.exe.config
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\di.config.xml
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\srvFEmiddle.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\srvFEmiddle.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\comBusinessBE.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\Common.Logging.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\Spring.Core.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\comBusinessBE.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\obj\x86\Release\srvFEmiddle.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\obj\x86\Release\srvFEmiddle.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2010\Projects\srvFEmiddle\srvFEmiddle\bin\Release\Log4Net.config.xml

@@ -1,0 +1,27 @@
+2015-09-01 20:24:58,503 [13] FATAL IOperacion -Linea:42 - System.Net.WebException: System error. ---> System.Net.InternalException: System error.
+   at System.Net.PooledStream.PrePush(Object expectedOwner)
+   at System.Net.ConnectionPool.PutConnection(PooledStream pooledStream, Object owningObject, Int32 creationTimeout, Boolean canReuse)
+   at System.Net.FtpWebRequest.FinishRequestStage(RequestStage stage)
+   at System.Net.FtpWebRequest.SyncRequestCallback(Object obj)
+   at System.Net.FtpWebRequest.RequestCallback(Object obj)
+   at System.Net.CommandStream.Dispose(Boolean disposing)
+   at System.IO.Stream.Close()
+   at System.IO.Stream.Dispose()
+   at System.Net.ConnectionPool.Destroy(PooledStream pooledStream)
+   at System.Net.ConnectionPool.PutConnection(PooledStream pooledStream, Object owningObject, Int32 creationTimeout, Boolean canReuse)
+   at System.Net.FtpWebRequest.AttemptedRecovery(Exception e)
+   at System.Net.FtpWebRequest.SubmitRequest(Boolean async)
+   --- End of inner exception stack trace ---
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at srvFEmiddle.BO.Tools.ooFtpBO.upload(String remoteFile, String localFile)
+2015-09-01 20:28:08,904 [13] ERROR IOperacion -Linea:68 - Se ha producido un error al traspasar el archivo 33_500123, con la siguiente descripcion: Length cannot be less than zero.
+Parameter name: length.
+2015-09-03 00:25:37,776 [12] ERROR IOperacion -Linea:68 - An exception occurred during a Ping request.
+2015-09-03 00:27:13,273 [12] ERROR IOperacion -Linea:68 - An exception occurred during a Ping request.
+2015-09-03 01:22:11,790 [13] ERROR IOperacion -Linea:68 - An exception occurred during a Ping request.
+2015-09-03 01:22:43,711 [13] ERROR IOperacion -Linea:68 - An exception occurred during a Ping request.
+2015-09-03 01:26:20,783 [13] ERROR IOperacion -Linea:68 - An exception occurred during a Ping request.
+2015-09-03 01:27:05,048 [13] ERROR IOperacion -Linea:68 - password status error
+2015-09-03 01:28:12,468 [13] ERROR IOperacion -Linea:68 - check for a status code of 250
+2015-09-03 01:29:44,669 [13] ERROR IOperacion -Linea:68 - check for a status code of 250
+2015-09-03 01:30:02,168 [13] ERROR IOperacion -Linea:68 - password status error

@@ -1,0 +1,427 @@
+2015-09-03 00:16:45,088 [13] INFO  IOperacion - Servicio iniciado a las 03-09-2015 0:16:45
+2015-09-03 00:16:45,104 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '03-09-2015 0:16:45'
+2015-09-03 00:16:58,916 [13] INFO  IOperacion - InPath:ftp://10.0.1.15/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-03 00:16:58,916 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-03 00:16:59,416 [13] INFO  IOperacion - Fueron encontrados 1 archivos.
+2015-09-03 00:18:17,289 [12] INFO  IOperacion - Servicio iniciado a las 03-09-2015 0:18:17
+2015-09-03 00:18:17,289 [12] INFO  IOperacion - Servicio inicia proocesamiento a las '03-09-2015 0:18:17'
+2015-09-03 00:18:29,319 [12] INFO  IOperacion - InPath:ftp://10.0.1.15/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-03 00:18:31,866 [12] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-03 00:18:32,913 [12] INFO  IOperacion - Fueron encontrados 1 archivos.
+2015-09-03 00:18:57,006 [12] INFO  IOperacion - Opening connection to ftp://10.0.1.15/ftp
+2015-09-03 00:19:42,833 [12] INFO  IOperacion - Se obtuvo IP
+2015-09-03 00:19:47,067 [12] INFO  IOperacion - Se define endpoint
+2015-09-03 00:19:48,864 [12] INFO  IOperacion - Se conecta socket
+2015-09-03 00:19:50,724 [12] INFO  IOperacion - read the host response
+2015-09-03 00:20:24,363 [12] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 00:21:02,378 [12] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:24:17,137 [12] INFO  IOperacion - doVerbose?
+2015-09-03 00:24:29,918 [12] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:24:39,730 [12] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:24:47,902 [12] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 00:24:51,636 [12] INFO  IOperacion - execute the USER ftp command (sends the username)
+2015-09-03 00:25:35,745 [12] INFO  IOperacion - Opening connection to ftp://10.0.1.15/ftp
+2015-09-03 00:25:58,760 [12] INFO  IOperacion - Se obtuvo IP
+2015-09-03 00:25:59,603 [12] INFO  IOperacion - Se define endpoint
+2015-09-03 00:26:00,260 [12] INFO  IOperacion - Se conecta socket
+2015-09-03 00:26:01,635 [12] INFO  IOperacion - read the host response
+2015-09-03 00:26:02,385 [12] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 00:26:02,385 [12] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:26:02,385 [12] INFO  IOperacion - doVerbose?
+2015-09-03 00:26:02,385 [12] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:26:02,385 [12] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:26:03,213 [12] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 00:26:05,619 [12] INFO  IOperacion - execute the USER ftp command (sends the username)
+2015-09-03 00:26:17,025 [12] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 00:26:17,025 [12] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 00:26:17,025 [12] INFO  IOperacion - doVerbose?
+2015-09-03 00:26:17,025 [12] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 00:26:36,040 [12] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 00:26:45,868 [12] INFO  IOperacion - check the returned status code after USER execute
+2015-09-03 00:26:51,821 [12] INFO  IOperacion - if the status code isnt 230
+2015-09-03 00:26:59,195 [12] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 00:26:59,836 [12] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 00:26:59,836 [12] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 00:26:59,836 [12] INFO  IOperacion - doVerbose?
+2015-09-03 00:26:59,836 [12] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 00:26:59,836 [12] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 00:27:03,633 [12] INFO  IOperacion - Connected to 10.0.1.15
+2015-09-03 00:27:13,242 [12] INFO  IOperacion - Opening connection to ftp://10.0.1.15/ftp
+2015-09-03 00:27:22,320 [12] INFO  IOperacion - Opening connection to ftp://10.0.1.15/ftp
+2015-09-03 00:27:43,163 [12] INFO  IOperacion - Se obtuvo IP
+2015-09-03 00:27:44,975 [12] INFO  IOperacion - Se define endpoint
+2015-09-03 00:27:47,225 [12] INFO  IOperacion - Se conecta socket
+2015-09-03 00:27:48,460 [12] INFO  IOperacion - read the host response
+2015-09-03 00:27:49,053 [12] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 00:27:49,053 [12] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:27:49,053 [12] INFO  IOperacion - doVerbose?
+2015-09-03 00:27:49,053 [12] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:27:49,053 [12] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 00:27:50,210 [12] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 00:27:51,975 [12] INFO  IOperacion - execute the USER ftp command (sends the username)
+2015-09-03 00:27:53,413 [12] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 00:27:53,413 [12] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 00:27:53,413 [12] INFO  IOperacion - doVerbose?
+2015-09-03 00:27:53,413 [12] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 00:27:53,413 [12] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 00:27:54,085 [12] INFO  IOperacion - check the returned status code after USER execute
+2015-09-03 00:27:56,381 [12] INFO  IOperacion - if the status code isnt 230
+2015-09-03 00:28:00,272 [12] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 00:28:16,037 [12] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 00:28:16,037 [12] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 00:28:16,037 [12] INFO  IOperacion - doVerbose?
+2015-09-03 00:28:16,037 [12] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 00:28:23,099 [12] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 00:28:32,255 [12] INFO  IOperacion - Connected to 10.0.1.15
+2015-09-03 01:21:15,401 [13] INFO  IOperacion - Servicio iniciado a las 03-09-2015 1:21:15
+2015-09-03 01:21:15,401 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '03-09-2015 1:21:15'
+2015-09-03 01:21:40,947 [13] INFO  IOperacion - Servicio iniciado a las 03-09-2015 1:21:40
+2015-09-03 01:21:40,963 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '03-09-2015 1:21:40'
+2015-09-03 01:21:53,807 [13] INFO  IOperacion - InPath:ftp://10.0.1.15/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-03 01:22:03,556 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-03 01:22:04,884 [13] INFO  IOperacion - Fueron encontrados 1 archivos.
+2015-09-03 01:22:11,259 [13] INFO  IOperacion - Opening connection to ftp://10.0.1.15/ftp
+2015-09-03 01:22:43,680 [13] INFO  IOperacion - Opening connection to ftp://10.0.1.15/ftp
+2015-09-03 01:23:43,616 [13] INFO  IOperacion - Opening connection to 10.0.1.15
+2015-09-03 01:23:46,803 [13] INFO  IOperacion - Se obtuvo IP
+2015-09-03 01:23:48,100 [13] INFO  IOperacion - Se define endpoint
+2015-09-03 01:23:49,022 [13] INFO  IOperacion - Se conecta socket
+2015-09-03 01:23:50,584 [13] INFO  IOperacion - read the host response
+2015-09-03 01:23:51,756 [13] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 01:23:51,756 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:23:51,756 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:23:51,756 [13] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:23:51,756 [13] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:23:52,459 [13] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 01:23:53,928 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 1
+2015-09-03 01:23:56,241 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:23:56,241 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:23:56,241 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:23:56,241 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:23:56,241 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:23:57,053 [13] INFO  IOperacion - check the returned status code after USER execute 1
+2015-09-03 01:24:04,881 [13] INFO  IOperacion - if the status code isnt 230
+2015-09-03 01:24:08,881 [13] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 01:24:10,053 [13] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 01:24:10,053 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 01:24:10,053 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:24:10,053 [13] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 01:24:10,053 [13] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 01:24:16,834 [13] INFO  IOperacion - Connected to 10.0.1.15
+2015-09-03 01:24:24,099 [13] INFO  IOperacion - split the host response: 250 CWD command successful
+
+2015-09-03 01:24:24,099 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 250 CWD command successful
+2015-09-03 01:24:24,099 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:24:24,099 [13] INFO  IOperacion - return message: 250 CWD command successful
+2015-09-03 01:24:24,099 [13] INFO  IOperacion - respuesta: 250 CWD command successful
+2015-09-03 01:24:29,631 [13] INFO  IOperacion - split the host response: 257 "/ftp/FV/Work" is the current directory
+
+2015-09-03 01:24:29,631 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 257 "/ftp/FV/Work" is the current directory
+2015-09-03 01:24:29,631 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:24:29,631 [13] INFO  IOperacion - return message: 257 "/ftp/FV/Work" is the current directory
+2015-09-03 01:24:29,631 [13] INFO  IOperacion - respuesta: 257 "/ftp/FV/Work" is the current directory
+2015-09-03 01:24:41,662 [13] INFO  IOperacion - Current directory is /ftp/FV/Work
+2015-09-03 01:25:14,598 [13] INFO  IOperacion - split the host response: 200 Type set to I
+
+2015-09-03 01:25:14,598 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 200 Type set to I
+2015-09-03 01:25:14,598 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:25:14,598 [13] INFO  IOperacion - return message: 200 Type set to I
+2015-09-03 01:25:14,598 [13] INFO  IOperacion - respuesta: 200 Type set to I
+2015-09-03 01:25:18,035 [13] INFO  IOperacion - Downloading file D33_500136.D33_500133 from 10.0.1.15//ftp/FV/Work
+2015-09-03 01:25:30,004 [13] INFO  IOperacion - split the host response: 227 Entering Passive Mode (10,0,1,15,132,217).
+
+2015-09-03 01:25:30,004 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 227 Entering Passive Mode (10,0,1,15,132,217).
+2015-09-03 01:25:30,004 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:25:30,004 [13] INFO  IOperacion - return message: 227 Entering Passive Mode (10,0,1,15,132,217).
+2015-09-03 01:25:30,004 [13] INFO  IOperacion - respuesta: 227 Entering Passive Mode (10,0,1,15,132,217).
+2015-09-03 01:26:06,331 [13] INFO  IOperacion - split the host response: 200 Type set to I
+
+2015-09-03 01:26:06,331 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 200 Type set to I
+2015-09-03 01:26:06,331 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:26:06,331 [13] INFO  IOperacion - return message: 200 Type set to I
+2015-09-03 01:26:06,331 [13] INFO  IOperacion - respuesta: 200 Type set to I
+2015-09-03 01:26:09,128 [13] INFO  IOperacion - Downloading file D33_500136.D33_500133 from 10.0.1.15//ftp/FV/Work
+2015-09-03 01:26:20,752 [13] INFO  IOperacion - Opening connection to ftp://10.0.1.15/ftp
+2015-09-03 01:26:49,548 [13] INFO  IOperacion - Opening connection to 10.0.1.15
+2015-09-03 01:26:50,908 [13] INFO  IOperacion - Se obtuvo IP
+2015-09-03 01:26:51,314 [13] INFO  IOperacion - Se define endpoint
+2015-09-03 01:26:51,892 [13] INFO  IOperacion - Se conecta socket
+2015-09-03 01:26:53,720 [13] INFO  IOperacion - read the host response
+2015-09-03 01:26:54,032 [13] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 01:26:54,032 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:26:54,032 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:26:54,032 [13] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:26:54,032 [13] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:26:55,001 [13] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 01:26:55,657 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 1
+2015-09-03 01:26:56,814 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:26:56,814 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:26:56,814 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:26:56,814 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:26:56,814 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:26:57,360 [13] INFO  IOperacion - check the returned status code after USER execute 1
+2015-09-03 01:26:57,798 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 2
+2015-09-03 01:26:58,314 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:26:58,314 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:26:58,314 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:26:58,314 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:26:58,314 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:26:58,892 [13] INFO  IOperacion - check the returned status code after USER execute 2
+2015-09-03 01:27:00,595 [13] INFO  IOperacion - if the status code isnt 230
+2015-09-03 01:27:02,267 [13] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 01:27:02,735 [13] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 01:27:02,735 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 01:27:02,735 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:27:02,735 [13] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 01:27:02,735 [13] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 01:27:03,392 [13] INFO  IOperacion - split the host response: 503 You are already logged in
+
+2015-09-03 01:27:03,392 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 503 You are already logged in
+2015-09-03 01:27:03,392 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:27:03,392 [13] INFO  IOperacion - return message: 503 You are already logged in
+2015-09-03 01:27:03,392 [13] INFO  IOperacion - respuesta: 503 You are already logged in
+2015-09-03 01:27:40,547 [13] INFO  IOperacion - split the host response: 221 Goodbye.
+
+2015-09-03 01:27:40,547 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 221 Goodbye.
+2015-09-03 01:27:40,547 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:27:40,547 [13] INFO  IOperacion - return message: 221 Goodbye.
+2015-09-03 01:27:40,547 [13] INFO  IOperacion - respuesta: 221 Goodbye.
+2015-09-03 01:27:42,312 [13] INFO  IOperacion - Opening connection to 10.0.1.15
+2015-09-03 01:27:46,250 [13] INFO  IOperacion - Se obtuvo IP
+2015-09-03 01:27:47,234 [13] INFO  IOperacion - Se define endpoint
+2015-09-03 01:27:48,140 [13] INFO  IOperacion - Se conecta socket
+2015-09-03 01:27:49,031 [13] INFO  IOperacion - read the host response
+2015-09-03 01:27:49,765 [13] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 01:27:49,765 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:27:49,765 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:27:49,765 [13] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:27:49,765 [13] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:27:50,359 [13] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 01:27:51,000 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 1
+2015-09-03 01:27:51,843 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:27:51,843 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:27:51,843 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:27:51,843 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:27:51,843 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:27:52,531 [13] INFO  IOperacion - check the returned status code after USER execute 1
+2015-09-03 01:28:00,343 [13] INFO  IOperacion - if the status code isnt 230
+2015-09-03 01:28:02,515 [13] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 01:28:03,624 [13] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 01:28:03,624 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 01:28:03,624 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:28:03,624 [13] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 01:28:03,624 [13] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 01:28:11,046 [13] INFO  IOperacion - Connected to 10.0.1.15
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - split the host response: 250 CWD command successful
+
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 250 CWD command successful
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - return message: 250 CWD command successful
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - respuesta: 250 CWD command successful
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - split the host response: 550 ftp/FV/Work/: No such file or directory
+
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 550 ftp/FV/Work/: No such file or directory
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - return message: 550 ftp/FV/Work/: No such file or directory
+2015-09-03 01:28:12,468 [13] INFO  IOperacion - respuesta: 550 ftp/FV/Work/: No such file or directory
+2015-09-03 01:29:16,591 [13] INFO  IOperacion - Opening connection to 10.0.1.15
+2015-09-03 01:29:18,591 [13] INFO  IOperacion - Se obtuvo IP
+2015-09-03 01:29:19,060 [13] INFO  IOperacion - Se define endpoint
+2015-09-03 01:29:19,622 [13] INFO  IOperacion - Se conecta socket
+2015-09-03 01:29:20,935 [13] INFO  IOperacion - read the host response
+2015-09-03 01:29:21,607 [13] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 01:29:21,607 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:29:21,607 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:29:21,607 [13] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:29:21,607 [13] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:29:22,326 [13] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 01:29:22,841 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 1
+2015-09-03 01:29:23,029 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:29:23,029 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:29:23,029 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:29:23,029 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:29:23,029 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:29:24,341 [13] INFO  IOperacion - check the returned status code after USER execute 1
+2015-09-03 01:29:28,872 [13] INFO  IOperacion - if the status code isnt 230
+2015-09-03 01:29:31,232 [13] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 01:29:31,794 [13] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 01:29:31,794 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 01:29:31,794 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:29:31,794 [13] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 01:29:31,794 [13] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 01:29:39,356 [13] INFO  IOperacion - Connected to 10.0.1.15
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - split the host response: 250 CWD command successful
+
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 250 CWD command successful
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - return message: 250 CWD command successful
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - respuesta: 250 CWD command successful
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - split the host response: 550 ftp/FV/Work: No such file or directory
+
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 550 ftp/FV/Work: No such file or directory
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - return message: 550 ftp/FV/Work: No such file or directory
+2015-09-03 01:29:44,669 [13] INFO  IOperacion - respuesta: 550 ftp/FV/Work: No such file or directory
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - split the host response: 221 Goodbye.
+
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 221 Goodbye.
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - return message: 221 Goodbye.
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - respuesta: 221 Goodbye.
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - Opening connection to 10.0.1.15
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - Se obtuvo IP
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - Se define endpoint
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - Se conecta socket
+2015-09-03 01:30:01,918 [13] INFO  IOperacion - read the host response
+2015-09-03 01:30:02,121 [13] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 01:30:02,121 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:30:02,121 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:30:02,121 [13] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:30:02,121 [13] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:30:02,121 [13] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 01:30:02,121 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 1
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - check the returned status code after USER execute 1
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 2
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - check the returned status code after USER execute 2
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - if the status code isnt 230
+2015-09-03 01:30:02,137 [13] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - split the host response: 503 You are already logged in
+
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 503 You are already logged in
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - return message: 503 You are already logged in
+2015-09-03 01:30:02,168 [13] INFO  IOperacion - respuesta: 503 You are already logged in
+2015-09-03 01:45:25,923 [13] INFO  IOperacion - Servicio iniciado a las 03-09-2015 1:45:25
+2015-09-03 01:45:25,923 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '03-09-2015 1:45:25'
+2015-09-03 01:45:57,032 [13] INFO  IOperacion - InPath:ftp://10.0.1.15/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-03 01:45:58,438 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-03 01:45:59,672 [13] INFO  IOperacion - Fueron encontrados 1 archivos.
+2015-09-03 01:46:57,218 [13] INFO  IOperacion - Opening connection to 10.0.1.15
+2015-09-03 01:47:04,436 [13] INFO  IOperacion - Se obtuvo IP
+2015-09-03 01:47:05,577 [13] INFO  IOperacion - Se define endpoint
+2015-09-03 01:47:06,811 [13] INFO  IOperacion - Se conecta socket
+2015-09-03 01:47:08,811 [13] INFO  IOperacion - read the host response
+2015-09-03 01:47:09,577 [13] INFO  IOperacion - split the host response: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+
+2015-09-03 01:47:09,577 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:47:09,577 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:47:09,577 [13] INFO  IOperacion - return message: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:47:09,577 [13] INFO  IOperacion - respuesta: 220 ProFTPD 1.3.4a Server (Debian) [::ffff:10.0.1.15]
+2015-09-03 01:47:10,374 [13] INFO  IOperacion - check for a status code of 220 vs:220
+2015-09-03 01:47:13,608 [13] INFO  IOperacion - execute the USER ftp command (sends the username) 1
+2015-09-03 01:47:14,217 [13] INFO  IOperacion - split the host response: 331 Password required for ftpusuario
+
+2015-09-03 01:47:14,217 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 331 Password required for ftpusuario
+2015-09-03 01:47:14,217 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:47:14,217 [13] INFO  IOperacion - return message: 331 Password required for ftpusuario
+2015-09-03 01:47:14,217 [13] INFO  IOperacion - respuesta: 331 Password required for ftpusuario
+2015-09-03 01:47:14,811 [13] INFO  IOperacion - check the returned status code after USER execute 1
+2015-09-03 01:47:22,670 [13] INFO  IOperacion - if the status code isnt 230
+2015-09-03 01:47:25,029 [13] INFO  IOperacion - execute the PASS ftp command (sends the password)
+2015-09-03 01:47:26,842 [13] INFO  IOperacion - split the host response: 230 User ftpusuario logged in
+
+2015-09-03 01:47:26,842 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 230 User ftpusuario logged in
+2015-09-03 01:47:26,842 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:47:26,842 [13] INFO  IOperacion - return message: 230 User ftpusuario logged in
+2015-09-03 01:47:26,842 [13] INFO  IOperacion - respuesta: 230 User ftpusuario logged in
+2015-09-03 01:47:34,482 [13] INFO  IOperacion - Connected to 10.0.1.15
+2015-09-03 01:47:40,545 [13] INFO  IOperacion - split the host response: 250 CWD command successful
+
+2015-09-03 01:47:40,545 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 250 CWD command successful
+2015-09-03 01:47:40,545 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:47:40,545 [13] INFO  IOperacion - return message: 250 CWD command successful
+2015-09-03 01:47:40,545 [13] INFO  IOperacion - respuesta: 250 CWD command successful
+2015-09-03 01:47:54,341 [13] INFO  IOperacion - split the host response: 257 "/ftp/FV/Work" is the current directory
+
+2015-09-03 01:47:54,341 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 257 "/ftp/FV/Work" is the current directory
+2015-09-03 01:47:54,341 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:47:54,341 [13] INFO  IOperacion - return message: 257 "/ftp/FV/Work" is the current directory
+2015-09-03 01:47:54,341 [13] INFO  IOperacion - respuesta: 257 "/ftp/FV/Work" is the current directory
+2015-09-03 01:48:09,075 [13] INFO  IOperacion - Current directory is /ftp/FV/Work
+2015-09-03 01:48:24,622 [13] INFO  IOperacion - Init of downloadingFile function
+2015-09-03 01:48:27,200 [13] INFO  IOperacion - split the host response: 200 Type set to I
+
+2015-09-03 01:48:27,200 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 200 Type set to I
+2015-09-03 01:48:27,200 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:48:27,200 [13] INFO  IOperacion - return message: 200 Type set to I
+2015-09-03 01:48:27,200 [13] INFO  IOperacion - respuesta: 200 Type set to I
+2015-09-03 01:48:35,465 [13] INFO  IOperacion - Downloading file D33_500136.D33_500133 from 10.0.1.15//ftp/FV/Work
+2015-09-03 01:48:45,137 [13] INFO  IOperacion - split the host response: 227 Entering Passive Mode (10,0,1,15,224,3).
+
+2015-09-03 01:48:45,137 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 227 Entering Passive Mode (10,0,1,15,224,3).
+2015-09-03 01:48:45,137 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:48:45,137 [13] INFO  IOperacion - return message: 227 Entering Passive Mode (10,0,1,15,224,3).
+2015-09-03 01:48:45,137 [13] INFO  IOperacion - respuesta: 227 Entering Passive Mode (10,0,1,15,224,3).
+2015-09-03 01:49:00,371 [13] INFO  IOperacion - Init of downloadingFile function
+2015-09-03 01:49:00,371 [13] INFO  IOperacion - split the host response: 200 Type set to I
+
+2015-09-03 01:49:00,371 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 200 Type set to I
+2015-09-03 01:49:00,371 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:49:00,371 [13] INFO  IOperacion - return message: 200 Type set to I
+2015-09-03 01:49:00,371 [13] INFO  IOperacion - respuesta: 200 Type set to I
+2015-09-03 01:49:00,371 [13] INFO  IOperacion - Downloading file D33_500136.D33_500133 from 10.0.1.15//ftp/FV/Work
+2015-09-03 01:49:15,401 [13] INFO  IOperacion - Init of downloadingFile function
+2015-09-03 01:49:18,339 [13] INFO  IOperacion - split the host response: 200 Type set to I
+
+2015-09-03 01:49:18,339 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 200 Type set to I
+2015-09-03 01:49:18,339 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:49:18,339 [13] INFO  IOperacion - return message: 200 Type set to I
+2015-09-03 01:49:18,339 [13] INFO  IOperacion - respuesta: 200 Type set to I
+2015-09-03 01:49:19,011 [13] INFO  IOperacion - Downloading file D33_500136.D33_500133 from 10.0.1.15//ftp/FV/Work
+2015-09-03 01:49:39,151 [13] INFO  IOperacion - Init of downloadingFile function
+2015-09-03 01:49:40,994 [13] INFO  IOperacion - split the host response: 200 Type set to I
+
+2015-09-03 01:49:40,994 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 200 Type set to I
+2015-09-03 01:49:40,994 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:49:40,994 [13] INFO  IOperacion - return message: 200 Type set to I
+2015-09-03 01:49:40,994 [13] INFO  IOperacion - respuesta: 200 Type set to I
+2015-09-03 01:49:41,479 [13] INFO  IOperacion - Downloading file D33_500136.D33_500133 from 10.0.1.15//ftp/FV/Work
+2015-09-03 01:50:19,931 [13] INFO  IOperacion - split the host response: 227 Entering Passive Mode (10,0,1,15,175,156).
+
+2015-09-03 01:50:19,931 [13] INFO  IOperacion - check for a space in the host response, if it exists return: 227 Entering Passive Mode (10,0,1,15,175,156).
+2015-09-03 01:50:19,931 [13] INFO  IOperacion - doVerbose?
+2015-09-03 01:50:19,931 [13] INFO  IOperacion - return message: 227 Entering Passive Mode (10,0,1,15,175,156).
+2015-09-03 01:50:19,931 [13] INFO  IOperacion - respuesta: 227 Entering Passive Mode (10,0,1,15,175,156).
+2015-09-03 22:34:04,955 [13] INFO  IOperacion - Servicio iniciado a las 03-09-2015 22:34:04
+2015-09-03 22:34:04,955 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '03-09-2015 22:34:04'
+2015-09-03 22:34:22,283 [13] INFO  IOperacion - InPath:ftp://10.0.1.15/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-03 22:34:22,939 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/

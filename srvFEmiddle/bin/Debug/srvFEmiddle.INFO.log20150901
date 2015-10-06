@@ -1,0 +1,53 @@
+2015-09-01 20:04:06,920 [12] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:04:06
+2015-09-01 20:04:09,514 [12] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:04:09'
+2015-09-01 20:04:36,466 [13] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:04:36
+2015-09-01 20:04:38,107 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:04:38'
+2015-09-01 20:04:52,311 [13] INFO  IOperacion - InPath:ftp://172.20.10.5/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-01 20:04:55,796 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-01 20:05:48,117 [13] INFO  IOperacion - Fueron encontrados 2 archivos.
+2015-09-01 20:06:04,087 [13] INFO  IOperacion - Inicio lectura de operaciones de tipo 2 en estado sin procesar.
+2015-09-01 20:06:24,948 [13] INFO  IOperacion - Se esta leyendo el archivo 33_500123
+2015-09-01 20:12:46,652 [13] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:12:46
+2015-09-01 20:12:46,668 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:12:46'
+2015-09-01 20:12:48,058 [13] INFO  IOperacion - InPath:ftp://172.20.10.5/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-01 20:12:50,777 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-01 20:12:56,776 [13] INFO  IOperacion - Fueron encontrados 2 archivos.
+2015-09-01 20:13:08,979 [13] INFO  IOperacion - Inicio lectura de operaciones de tipo 2 en estado sin procesar.
+2015-09-01 20:13:20,306 [13] INFO  IOperacion - Se esta leyendo el archivo 33_500123
+2015-09-01 20:22:41,210 [13] INFO  IOperacion - File include correct document information: 33_500123
+2015-09-01 20:28:07,263 [13] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:28:07
+2015-09-01 20:28:07,279 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:28:07'
+2015-09-01 20:28:08,326 [13] INFO  IOperacion - InPath:ftp://172.20.10.5/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-01 20:28:08,326 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-01 20:28:08,748 [13] INFO  IOperacion - Fueron encontrados 2 archivos.
+2015-09-01 20:28:08,748 [13] INFO  IOperacion - Inicio lectura de operaciones de tipo 2 en estado sin procesar.
+2015-09-01 20:28:08,748 [13] INFO  IOperacion - Se esta leyendo el archivo 33_500123
+2015-09-01 20:28:08,904 [13] INFO  IOperacion - Servicio finaliza procesamiento de '0' registros del tipo ooFacturaVentaBO a las '01-09-2015 20:28:08'
+2015-09-01 20:28:37,825 [13] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:28:37
+2015-09-01 20:28:37,841 [13] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:28:37'
+2015-09-01 20:28:47,700 [13] INFO  IOperacion - InPath:ftp://172.20.10.5/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-01 20:28:48,731 [13] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-01 20:28:50,153 [13] INFO  IOperacion - Fueron encontrados 1 archivos.
+2015-09-01 20:29:36,808 [12] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:29:36
+2015-09-01 20:29:36,823 [12] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:29:36'
+2015-09-01 20:29:44,933 [12] INFO  IOperacion - InPath:ftp://172.20.10.5/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-01 20:29:45,870 [12] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-01 20:29:49,901 [12] INFO  IOperacion - Fueron encontrados 2 archivos.
+2015-09-01 20:29:56,448 [12] INFO  IOperacion - Inicio lectura de operaciones de tipo 2 en estado sin procesar.
+2015-09-01 20:30:05,854 [12] INFO  IOperacion - Se esta leyendo el archivo 33_500123
+2015-09-01 20:30:33,181 [12] INFO  IOperacion - File include correct document information: 33_500123
+2015-09-01 20:35:07,720 [12] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:35:07
+2015-09-01 20:35:07,736 [12] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:35:07'
+2015-09-01 20:35:16,173 [12] INFO  IOperacion - InPath:ftp://172.20.10.5/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-01 20:35:16,517 [12] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-01 20:35:18,985 [12] INFO  IOperacion - Fueron encontrados 2 archivos.
+2015-09-01 20:35:24,063 [12] INFO  IOperacion - Inicio lectura de operaciones de tipo 2 en estado sin procesar.
+2015-09-01 20:35:28,813 [12] INFO  IOperacion - Se esta leyendo el archivo 33_500123
+2015-09-01 20:35:43,328 [12] INFO  IOperacion - File include correct document information: 33_500123
+2015-09-01 20:36:38,077 [12] INFO  IOperacion - Servicio iniciado a las 01-09-2015 20:36:38
+2015-09-01 20:36:38,077 [12] INFO  IOperacion - Servicio inicia proocesamiento a las '01-09-2015 20:36:38'
+2015-09-01 20:36:46,983 [12] INFO  IOperacion - InPath:ftp://172.20.10.5/ftp Usuario:ftpusuario Password:contrasenaftp2
+2015-09-01 20:36:47,858 [12] INFO  IOperacion - Leyendo el directorio: /FV/Work/
+2015-09-01 20:36:48,624 [12] INFO  IOperacion - Fueron encontrados 2 archivos.
+2015-09-01 20:36:56,733 [12] INFO  IOperacion - Inicio lectura de operaciones de tipo 2 en estado sin procesar.
+2015-09-01 20:37:01,061 [12] INFO  IOperacion - Se esta leyendo el archivo 33_500123
