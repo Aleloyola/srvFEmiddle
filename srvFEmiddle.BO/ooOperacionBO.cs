@@ -89,27 +89,22 @@ namespace srvFEmiddle.BO
                         this.oLog.LogInfo("Se esta leyendo el archivo " + oFiles.sPathCombine(oInfoDoc.sInPathWork, item));
 
                         bool bDownload = oFtpIn.downloadShell(oInfoDoc, item);
-                        //oFtpIn.download(oFiles.sPathCombine(oInfoDoc.sInPathWork, item), oFiles.sPathCombineWin(,System.AppDomain.CurrentDomain.BaseDirectory item));
+                        
                         //If filename include document information, then we can continue, else need to be marked as error
                         if (bDownload && this.bDocumentInfo(out sDocType, out sDocNumber, item))
                         {
-                            //this.oLog.LogInfo("File include correct document information: "+item);
                             this.oLog.LogInfo("DocType: " + sDocType+ "DocNumber: "+sDocNumber);
-                            //this.oLog.LogInfo(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
-                            //oFtpOut.upload2(item + ".txt1", oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
-                            //oFtpOut.uploadShell(oInfoDoc, oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
-
                             bool bState = oFtpOut.upload(this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
                             if (bState)
                             {
                                 this.oLog.LogInfo("File will be moved");
-                                this.bMoveFtpFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathProcessed, item, oInfoDoc);
+                                this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathProcessed, item, oInfoDoc);
                                 this.oConnectionBD.updateOK(sDocType, sDocNumber);
                                 lProcesados++;
                             }
                             else
                             {
-                                this.bMoveFtpFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
                                 this.oConnectionBD.updateError(sDocType, sDocNumber, "Upload failed.");
                                 oLog.LogInfo("Uploading file error");
                             }
@@ -117,13 +112,13 @@ namespace srvFEmiddle.BO
                         else
                         {
                             this.oLog.LogInfo("File don't include document information");
-                            this.bMoveFtpFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                            this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
                             //I can't mark in DB, because file doesn't have information to identify some register on DB.
                         }
                     }
                     catch (Exception ex)
                     {
-                        this.bMoveFtpFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                        this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
                         this.oConnectionBD.updateError(sDocType, sDocNumber, ex.Message);
                         this.oLog.LogError(String.Format("Se ha producido un error al traspasar el archivo {0}, con la siguiente descripcion: {1}.", item, ex.Message));
                     }
@@ -153,16 +148,15 @@ namespace srvFEmiddle.BO
             return cNewFileName;
         }
 
-        private bool bMoveFtpFile(ooFtpBO oFtpIn, string sOriginalPath, String sNewPath, string sFile, ooInfoDocumentoBE oInfoDoc)
+
+        private bool bMoveFile(ooFtpBO oFtpIn, string sOriginalPath, String sNewPath, string sFile, ooInfoDocumentoBE oInfoDoc)
         {
             bool bResp = false;
             try
             {
                 ooFileBO oFiles = new ooFileBO(); //For combine and remove temporary files.
-                //oFtpIn.upload2(oFiles.sPathCombine(sNewPath, sFile), sFile); //copy file into new directory
-                //oFtpIn.delete(oFiles.sPathCombine(sOriginalPath, sFile)); //se elimina del directorio antiguo
                 oFtpIn.renameShell(oInfoDoc,sFile, oFiles.sPathCombine(sNewPath, sFile));
-                //oFiles.deleteFile(sFile); //Delete local temporary file
+                oFiles.moveFile(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, sFile), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, System.Configuration.ConfigurationManager.AppSettings["sInternalTempDirectory"]));
                 bResp = true;
             }
             catch (Exception ex)
