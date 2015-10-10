@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Net;
 using System;
+using System.Threading;
 using comBusinessBE.BI;
 using comBusinessBE.BE;
 
@@ -62,7 +63,7 @@ namespace srvFEmiddle.BO.Tools
             {
                 if (sw.BaseStream.CanWrite)
                 {
-                    p.WaitForExit(500);
+                    p.WaitForExit(1000);
                         //Console.WriteLine("Forcing Download from " + folder.server + folder.path + " of " + file + "\n"); log += "\r\n\r\n\t\t- Forcing Download from " + folder.server + folder.path + file + "\tto\t" + basePath + "\\" + Util.getDateFormated(reverseDate) + "\\" + parentFolder + "\\" + folder.server + "\\" + file;
                         //oLog.LogInfo("Cambia de directorio a:" + System.AppDomain.CurrentDomain.BaseDirectory);
                         sw.WriteLine("cd " + System.AppDomain.CurrentDomain.BaseDirectory);
@@ -78,6 +79,25 @@ namespace srvFEmiddle.BO.Tools
             return bResp;
         }
 
+        public bool bCheckFileDownload(string localFile)
+        {
+            bool bResp = false;
+            if (File.Exists(localFile)) oLog.LogInfo("Existe el archivo");
+            else oLog.LogInfo("No existe el archivo");
+            
+            int elapsed = 0;
+            while ((!bResp) && (elapsed < 5000))
+            {
+                Thread.Sleep(1000);
+                elapsed += 1000;
+                if (File.Exists(localFile)) bResp = true;
+            }
+
+            if (File.Exists(localFile)) oLog.LogInfo("Existe el archivo");
+            else oLog.LogInfo("No existe el archivo");
+                
+            return bResp;
+        }
         public bool renameShell(ooInfoDocumentoBE oInfoDoc, string cOriginalName, string cNewName)
         {
             bool bResp = false;
@@ -104,7 +124,7 @@ namespace srvFEmiddle.BO.Tools
             {
                 if (sw.BaseStream.CanWrite)
                 {
-                    p.WaitForExit(500);
+                    p.WaitForExit(1000);
                         //Console.WriteLine("Forcing Download from " + folder.server + folder.path + " of " + file + "\n"); log += "\r\n\r\n\t\t- Forcing Download from " + folder.server + folder.path + file + "\tto\t" + basePath + "\\" + Util.getDateFormated(reverseDate) + "\\" + parentFolder + "\\" + folder.server + "\\" + file;
                         //oLog.LogInfo("Cambia de directorio a:" + System.AppDomain.CurrentDomain.BaseDirectory);
                         sw.WriteLine("cd " + System.AppDomain.CurrentDomain.BaseDirectory);
@@ -299,17 +319,6 @@ namespace srvFEmiddle.BO.Tools
         public bool upload(string remoteFile, string localFile)
         {
             bool bState = true;
-            if (File.Exists(localFile)) oLog.LogInfo("Existe el archivo");
-            else
-                oLog.LogInfo("No existe el archivo");
-
-            while (!File.Exists(localFile))
-            { }
-
-            if (File.Exists(localFile)) oLog.LogInfo("Existe el archivo");
-            else
-                oLog.LogInfo("No existe el archivo");
-
             try
             {
                 /* Create an FTP Request */

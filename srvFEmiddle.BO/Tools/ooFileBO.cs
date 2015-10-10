@@ -19,6 +19,7 @@ namespace srvFEmiddle.BO.Tools
         public void moveFile(string sSourcePath, string sDestinyPath)
         {
             sDestinyPath = Path.Combine(sDestinyPath, Path.GetFileName(sSourcePath));
+            if (File.Exists(sDestinyPath)) File.Delete(sDestinyPath);
             Directory.Move(sSourcePath, sDestinyPath);
         }
 

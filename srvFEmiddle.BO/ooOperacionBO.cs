@@ -93,9 +93,20 @@ namespace srvFEmiddle.BO
                         //If filename include document information, then we can continue, else need to be marked as error
                         if (bDownload && this.bDocumentInfo(out sDocType, out sDocNumber, item))
                         {
-                            this.oLog.LogInfo("DocType: " + sDocType+ "DocNumber: "+sDocNumber);
-                            bool bState = oFtpOut.upload(this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
-                            if (bState)
+                            bool bStateUpload = false;
+                            bool bStateDownload = oFtpIn.bCheckFileDownload(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                            if (bStateDownload)
+                            {
+                                bStateUpload = oFtpOut.upload(this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                            }
+                            else
+                            {
+                                this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                this.oConnectionBD.updateError(sDocType, sDocNumber, "Download failed.");
+                                oLog.LogInfo("Downloading file error");
+                            }
+
+                            if (bStateUpload)
                             {
                                 this.oLog.LogInfo("File will be moved");
                                 this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathProcessed, item, oInfoDoc);
