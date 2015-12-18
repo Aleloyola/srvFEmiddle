@@ -44,10 +44,22 @@ namespace srvFEmiddle.BO
             List<string> lstFilesResult = new List<string>();
             this.oLog.LogInfo("Leyendo el directorio: " + oInfoDoc.sInPathWork);
             lstFiles = oFtp.directoryListSimple(oInfoDoc.sInPathWork).ToList<string>();
-            foreach(string file in lstFiles){
-                if (file.Contains("."))
+            
+            if(oInfoDoc.bIsStandard){
+                foreach(string file in lstFiles)
                 {
-                    lstFilesResult.Add(file);
+                    if (file.Length > 1)
+                    {
+                        lstFilesResult.Add(file);
+                    }
+                }
+            }else 
+            {
+                foreach(string file in lstFiles){
+                    if (file.Contains("."))
+                    {
+                        lstFilesResult.Add(file);
+                    }
                 }
             }
             this.oLog.LogInfo("Fueron encontrados " + lstFilesResult.Count + " archivos.");
@@ -69,7 +81,6 @@ namespace srvFEmiddle.BO
 
             string sDocType = string.Empty; //to be used in foreach flow.
             string sDocNumber = string.Empty; //IDEM
-            //oFtpOut.upload("D33_500161.D33_500161", "C:\\Program Files (x86)\\srvFEmiddle\\D33_500126.D33_500126");
             
             foreach (string item in lstFiles)
             {
@@ -87,8 +98,8 @@ namespace srvFEmiddle.BO
                     {
                         this.oLog.LogInfo("Se está accediendo al host: "+ oInfoDoc.sInPath);
                         this.oLog.LogInfo("Se esta leyendo el archivo " + oFiles.sPathCombine(oInfoDoc.sInPathWork, item));
-
-                        bool bDownload = oFtpIn.downloadShell(oInfoDoc, item);
+                        //If source is standard, a regular download instruction will be used, else, the shell instruction is needed
+                        bool bDownload = (oInfoDoc.bIsStandard ? oFtpIn.download(oFiles.sPathCombine(oInfoDoc.sInPathWork, item), item) : oFtpIn.downloadShell(oInfoDoc, item));
                         
                         //If filename include document information, then we can continue, else need to be marked as error
                         if (bDownload && this.bDocumentInfo(out sDocType, out sDocNumber, item))
@@ -148,6 +159,9 @@ namespace srvFEmiddle.BO
                 {
                     cNewFileName = cOriginalName.Substring(1, cOriginalName.IndexOf('.')) + "txt";
                 }
+                else {
+                    cNewFileName = cOriginalName + ".txt";
+                }
                 
             }
             catch (Exception ex)
@@ -166,7 +180,14 @@ namespace srvFEmiddle.BO
             try
             {
                 ooFileBO oFiles = new ooFileBO(); //For combine and remove temporary files.
-                oFtpIn.renameShell(oInfoDoc,sFile, oFiles.sPathCombine(sNewPath, sFile));
+                if(oInfoDoc.bIsStandard){
+                    oFtpIn.upload(oFiles.sPathCombine(sNewPath, sFile), sFile); //copy file into new directory
+                    oFtpIn.delete(oFiles.sPathCombine(sOriginalPath, sFile)); //existing file in old directory is deleted
+                }
+                else
+                {
+                    oFtpIn.renameShell(oInfoDoc,sFile, oFiles.sPathCombine(sNewPath, sFile));
+                }
                 oFiles.moveFile(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, sFile), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, System.Configuration.ConfigurationManager.AppSettings["sInternalTempDirectory"]));
                 bResp = true;
             }

@@ -8,6 +8,7 @@ namespace comBusinessBE.BE
     public class ooInfoDocumentoBE
     {
         public string sInPath { get; set; }
+        public bool bIsStandard { get; set; }
         public string sInPathWork { get; set; }
         public string sInPathProcessed { get; set; }
         public string sInPathError { get; set; }
