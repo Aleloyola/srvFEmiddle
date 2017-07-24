@@ -6,8 +6,7 @@
     <constructor-arg>
       <list element-type="comBusinessBE.BI.IOperacion, comBusinessBE">
         <ref object="pluginFacturaVenta"/>
-        <!--<ref object="pluginNCVenta"/>
-        <ref object="pluginNDVenta"/>-->
+        <ref object="pluginNCVenta"/>
       </list>
     </constructor-arg>
   </object>
@@ -18,12 +17,13 @@
   </object>
 
   <object id="refParametrosFacturaVenta"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
-    <property name="sInPath" value="ftp://10.0.1.15/ftp"/>
-    <property name="sInPathWork" value="/FV/Work/"/>
-    <property name="sInPathProcessed" value="/FV/Processed/"/>
-    <property name="sInPathError" value="/FV/Error/"/>
-    <property name="sInUsuarioFTP" value="ftpusuario"/>
-    <property name="sInPasswordFTP" value="contrasenaftp2"/>
+    <property name="sInPath" value="ftp://10.0.1.18/"/>
+    <property name="bIsStandard" value="true"/>
+    <property name="sInPathWork" value="FV/Work/"/>
+    <property name="sInPathProcessed" value="ftp/FV/Processed/"/>
+    <property name="sInPathError" value="ftp/FV/Error/"/>
+    <property name="sInUsuarioFTP" value="pi"/>
+    <property name="sInPasswordFTP" value="raspberry"/>
     <property name="sOutPath" value="ftp://10.0.1.18/FV/"/>
     <property name="sOutUsuarioFTP" value="ftppi"/>
     <property name="sOutPasswordFTP" value="passwordpi"/>
@@ -35,34 +35,23 @@
     <property name="oConnectionBD" ref="refConnectionDB" />
   </object>
 
-  <object name="pluginNDVenta" singleton="true" type="srvFEmiddle.BO.ooNotaDebitoVentaBO, srvFEmiddle.BO">
-    <property name="oInfoNotaDebitoVenta" ref="refParametrosNotaDebitoVenta" />
-    <property name="oConnectionBD" ref="refConnectionDB" />
-  </object>
 
   <object id="refParametrosNotaCreditoVenta"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
-    <property name="sInPath" value="ftp://10.0.1.10/ftp"/>
-    <property name="sInPathWork" value="/NC/Work/"/>
-    <property name="sInPathProcessed" value="/NC/Processed/"/>
-    <property name="sInPathError" value="/NC/Error/"/>
-    <property name="sInUsuarioFTP" value="ftpusuario"/>
-    <property name="sInPasswordFTP" value="contrasenaftp2"/>
-    <property name="sOutPath" value="ftp://10.0.1.18/NC/"/>
-    <property name="sOutUsuarioFTP" value="ftppi"/>
-    <property name="sOutPasswordFTP" value="passwordpi"/>
+    <property name="sInPath" value="10.0.1.18"/>
+    <property name="bIsSFTP" value="true"/>
+    <property name="sInPort" value="22"/>
+    <property name="sInPathWork" value="test/te"/>
+    <property name="sInPathProcessed" value="test"/>
+    <property name="sInPathError" value="/FV/Error/"/>
+    <property name="sInUsuarioFTP" value="pi"/>
+    <property name="sInPasswordFTP" value="raspberry"/>
+    <property name="sOutPath" value="198.46.225.184"/>
+    <property name="sOutPort" value="22"/>
+    <property name="sOutSFTPpath" value="test_readwrite"/>
+    <property name="sOutUsuarioFTP" value="usersftp"/>
+    <property name="sOutPasswordFTP" value="usersftppassword"/>
   </object>
 
-  <object id="refParametrosNotaDebitoVenta"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
-    <property name="sInPath" value="ftp://10.0.1.10/ftp"/>
-    <property name="sInPathWork" value="/ND/Work/"/>
-    <property name="sInPathProcessed" value="/ND/Processed/"/>
-    <property name="sInPathError" value="/ND/Error/"/>
-    <property name="sInUsuarioFTP" value="ftpusuario"/>
-    <property name="sInPasswordFTP" value="contrasenaftp2"/>
-    <property name="sOutPath" value="ftp://10.0.1.18/ND/"/>
-    <property name="sOutUsuarioFTP" value="ftppi"/>
-    <property name="sOutPasswordFTP" value="passwordpi"/>
-  </object>
 
   <!--- Conexiones a las bases de datos-->
   <!-- Objetos basicos para persistencia en BD-->

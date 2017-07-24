@@ -19,6 +19,7 @@ namespace comBusinessBE.BE
         public string sOutPasswordFTP { get; set; }
         public bool bIsStandard { get; set; }
         public bool bIsSFTP { get; set; }
-        public string sPort { get; set; }
+        public string sInPort { get; set; }
+        public string sOutPort { get; set; }
     }
 }

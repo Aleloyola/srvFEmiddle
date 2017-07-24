@@ -75,7 +75,7 @@ namespace srvFEmiddle.BO
         public List<string> SFTPleerDocumentos(ooInfoDocumentoBE oInfoDoc) //usado con el funcionamiento general
         {
             this.oLog.LogInfo("InPath:" + oInfoDoc.sInPath + " Usuario:" + oInfoDoc.sInUsuarioFTP + " Password:" + oInfoDoc.sInPasswordFTP);
-            ooSftpBO oSftp = new ooSftpBO(oInfoDoc.sInPath, oInfoDoc.sPort, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);
+            ooSftpBO oSftp = new ooSftpBO(oInfoDoc.sInPath, oInfoDoc.sInPort, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);
             List<string> lstFiles;
            
             this.oLog.LogInfo("Leyendo el directorio: " + oInfoDoc.sInPathWork);
@@ -178,8 +178,8 @@ namespace srvFEmiddle.BO
         {
             int lProcesados = 0;
             ooFileBO oFiles = new ooFileBO(); //For combine and remove temporary files.
-            ooSftpBO oFtpIn;
-            ooSftpBO oFtpOut;
+            ooSftpBO oSftpIn;
+            ooSftpBO oSftpOut;
             this.oLog.LogInfo(String.Format("Inicio lectura de operaciones de tipo {0} en estado sin procesar.", lstFiles.Count));
 
             string sDocType = string.Empty; //to be used in foreach flow.
@@ -189,9 +189,9 @@ namespace srvFEmiddle.BO
             {
                 sDocType = string.Empty;
                 sDocNumber = string.Empty;
-                oFtpIn = new ooSftpBO(oInfoDoc.sInPath, oInfoDoc.sPort, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);
+                oSftpIn = new ooSftpBO(oInfoDoc.sInPath, oInfoDoc.sInPort, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);
+                oSftpOut = new ooSftpBO(oInfoDoc.sOutPath, oInfoDoc.sOutPort, oInfoDoc.sOutUsuarioFTP, oInfoDoc.sOutPasswordFTP, oLog); //Writting server connection
 
-                oFtpOut = new ooSftpBO(oInfoDoc.sOutPath, oInfoDoc.sPort, oInfoDoc.sOutUsuarioFTP, oInfoDoc.sOutPasswordFTP, oLog); //Writting server connection
                 if (item.Length > 0)
                 {
                     oLog.LogInfo("El archivo a trabajar es:" + item);
@@ -200,21 +200,21 @@ namespace srvFEmiddle.BO
                     {
                         this.oLog.LogInfo("Se está accediendo al host: " + oInfoDoc.sInPath);
                         this.oLog.LogInfo("Se esta leyendo el archivo " + oFiles.sPathCombine(oInfoDoc.sInPathWork, item));
-                        bool bDownload = oFtpIn.download(oFiles.sPathCombine(oInfoDoc.sInPathWork, item),item) ;
+                        bool bDownload = oSftpIn.download(oFiles.sPathCombine(oInfoDoc.sInPathWork, item), item);
                         
                         //If filename include document information, then we can continue, else need to be marked as error
                         if (bDownload && this.bDocumentInfo(out sDocType, out sDocNumber, item))
                         {
                             bool bStateUpload = false;
-                            bool bStateDownload = oFtpIn.bCheckFileDownload(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                            bool bStateDownload = oSftpIn.bCheckFileDownload(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
                             if (bStateDownload)
                             {
-                                bStateUpload = oFtpOut.upload(oInfoDoc.sOutSFTPpath, this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
-                                oFtpOut.close();
+                                bStateUpload = oSftpOut.upload(oInfoDoc.sOutSFTPpath, this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                                oSftpOut.close();
                             }
                             else
                             {
-                                this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                this.SFTP_bMoveFile(oSftpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
                                 this.oConnectionBD.updateError(sDocType, sDocNumber, "Download failed.");
                                 oLog.LogInfo("Downloading file error");
                             }
@@ -222,13 +222,13 @@ namespace srvFEmiddle.BO
                             if (bStateUpload)
                             {
                                 this.oLog.LogInfo("File will be moved");
-                                this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathProcessed, item, oInfoDoc);
+                                this.SFTP_bMoveFile(oSftpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathProcessed, item, oInfoDoc);
                                 this.oConnectionBD.updateOK(sDocType, sDocNumber);
                                 lProcesados++;
                             }
                             else
                             {
-                                this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                this.SFTP_bMoveFile(oSftpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
                                 this.oConnectionBD.updateError(sDocType, sDocNumber, "Upload failed.");
                                 oLog.LogInfo("Uploading file error");
                             }
@@ -236,13 +236,13 @@ namespace srvFEmiddle.BO
                         else
                         {
                             this.oLog.LogInfo("File don't include document information");
-                            this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                            this.SFTP_bMoveFile(oSftpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
                             //I can't mark in DB, because file doesn't have information to identify some register on DB.*/
                         }
                     }
                     catch (Exception ex)
                     {
-                        this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                        this.SFTP_bMoveFile(oSftpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
                         this.oConnectionBD.updateError(sDocType, sDocNumber, ex.Message);
                         this.oLog.LogError(String.Format("Se ha producido un error al traspasar el archivo {0}, con la siguiente descripcion: {1}.", item, ex.Message));
                     }

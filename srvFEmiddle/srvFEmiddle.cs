@@ -33,9 +33,9 @@ namespace srvFEmiddle
             try
             {
                 ThreadStart ts = new ThreadStart(TraspasaDocumentos);
-                //*oLogSvc = new ooLogSrv();
-                //*if (!EventLog.SourceExists(_sSourceEvLog))
-                   //* EventLog.CreateEventSource(_sSourceEvLog, "Application");
+                oLogSvc = new ooLogSrv();
+                if (!EventLog.SourceExists(_sSourceEvLog))
+                   EventLog.CreateEventSource(_sSourceEvLog, "Application");
 
                 this._threadTraspasaDocs = new Thread(ts);
                 this._bEstaEjecutandose = true;
