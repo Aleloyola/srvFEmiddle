@@ -7,6 +7,7 @@ using comBusinessBE.BE;
 using comBusinessBE.BD;
 using srvFEmiddle.BO.Tools;
 
+using Renci.SshNet.Sftp;
 namespace srvFEmiddle.BO
 {
     public abstract class ooOperacionBO: IOperacion
@@ -65,6 +66,24 @@ namespace srvFEmiddle.BO
             this.oLog.LogInfo("Fueron encontrados " + lstFilesResult.Count + " archivos.");
             return lstFilesResult;
         }
+
+        /// <summary>
+        /// Fuction used in order to probe conexion with input server and to obtain list of files to transfer
+        /// </summary>
+        /// <param name="oInfoDoc">Configuration of operation</param>
+        /// <returns></returns>
+        public List<string> SFTPleerDocumentos(ooInfoDocumentoBE oInfoDoc) //usado con el funcionamiento general
+        {
+            this.oLog.LogInfo("InPath:" + oInfoDoc.sInPath + " Usuario:" + oInfoDoc.sInUsuarioFTP + " Password:" + oInfoDoc.sInPasswordFTP);
+            ooSftpBO oSftp = new ooSftpBO(oInfoDoc.sInPath, oInfoDoc.sPort, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);
+            List<string> lstFiles;
+           
+            this.oLog.LogInfo("Leyendo el directorio: " + oInfoDoc.sInPathWork);
+            lstFiles = oSftp.directoryListSimple(oInfoDoc.sInPathWork).ToList<string>();
+            
+            this.oLog.LogInfo("Fueron encontrados " + lstFiles.Count + " archivos.");
+            return lstFiles;
+        }
         /// <summary>
         /// Funcion de uso general con la lógica para mover los archivos
         /// </summary>
@@ -75,8 +94,8 @@ namespace srvFEmiddle.BO
         {
             int lProcesados = 0;
             ooFileBO oFiles = new ooFileBO(); //For combine and remove temporary files.
-            ooFtpBO oFtpIn;// = new ooFtpBO(oInfoDoc.sInPath, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);//Reading server connection
-            ooFtpBO oFtpOut;// = new ooFtpBO(oInfoDoc.sOutPath, oInfoDoc.sOutUsuarioFTP, oInfoDoc.sOutPasswordFTP, oLog); //Writting server connection
+            ooFtpBO oFtpIn;
+            ooFtpBO oFtpOut;
             this.oLog.LogInfo(String.Format("Inicio lectura de operaciones de tipo {0} en estado sin procesar.", lstFiles.Count));
 
             string sDocType = string.Empty; //to be used in foreach flow.
@@ -149,6 +168,89 @@ namespace srvFEmiddle.BO
             return lProcesados;
         }
 
+        /// <summary>
+        /// Funcion de uso general con la lógica para mover los archivos para protocolo SFTP
+        /// </summary>
+        /// <param name="oInfoDoc"></param>
+        /// <param name="lstFiles"></param>
+        /// <returns></returns>
+        public int SFTPmoverDocumentos(ooInfoDocumentoBE oInfoDoc, List<string> lstFiles)
+        {
+            int lProcesados = 0;
+            ooFileBO oFiles = new ooFileBO(); //For combine and remove temporary files.
+            ooSftpBO oFtpIn;
+            ooSftpBO oFtpOut;
+            this.oLog.LogInfo(String.Format("Inicio lectura de operaciones de tipo {0} en estado sin procesar.", lstFiles.Count));
+
+            string sDocType = string.Empty; //to be used in foreach flow.
+            string sDocNumber = string.Empty; //IDEM
+
+            foreach (string item in lstFiles)
+            {
+                sDocType = string.Empty;
+                sDocNumber = string.Empty;
+                oFtpIn = new ooSftpBO(oInfoDoc.sInPath, oInfoDoc.sPort, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);
+
+                oFtpOut = new ooSftpBO(oInfoDoc.sOutPath, oInfoDoc.sPort, oInfoDoc.sOutUsuarioFTP, oInfoDoc.sOutPasswordFTP, oLog); //Writting server connection
+                if (item.Length > 0)
+                {
+                    oLog.LogInfo("El archivo a trabajar es:" + item);
+
+                    try
+                    {
+                        this.oLog.LogInfo("Se está accediendo al host: " + oInfoDoc.sInPath);
+                        this.oLog.LogInfo("Se esta leyendo el archivo " + oFiles.sPathCombine(oInfoDoc.sInPathWork, item));
+                        bool bDownload = oFtpIn.download(oFiles.sPathCombine(oInfoDoc.sInPathWork, item),item) ;
+                        
+                        //If filename include document information, then we can continue, else need to be marked as error
+                        if (bDownload && this.bDocumentInfo(out sDocType, out sDocNumber, item))
+                        {
+                            bool bStateUpload = false;
+                            bool bStateDownload = oFtpIn.bCheckFileDownload(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                            if (bStateDownload)
+                            {
+                                bStateUpload = oFtpOut.upload(oInfoDoc.sOutSFTPpath, this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                                oFtpOut.close();
+                            }
+                            else
+                            {
+                                this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                this.oConnectionBD.updateError(sDocType, sDocNumber, "Download failed.");
+                                oLog.LogInfo("Downloading file error");
+                            }
+
+                            if (bStateUpload)
+                            {
+                                this.oLog.LogInfo("File will be moved");
+                                this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathProcessed, item, oInfoDoc);
+                                this.oConnectionBD.updateOK(sDocType, sDocNumber);
+                                lProcesados++;
+                            }
+                            else
+                            {
+                                this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                this.oConnectionBD.updateError(sDocType, sDocNumber, "Upload failed.");
+                                oLog.LogInfo("Uploading file error");
+                            }
+                        }
+                        else
+                        {
+                            this.oLog.LogInfo("File don't include document information");
+                            this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                            //I can't mark in DB, because file doesn't have information to identify some register on DB.*/
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        this.SFTP_bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                        this.oConnectionBD.updateError(sDocType, sDocNumber, ex.Message);
+                        this.oLog.LogError(String.Format("Se ha producido un error al traspasar el archivo {0}, con la siguiente descripcion: {1}.", item, ex.Message));
+                    }
+                }
+            }
+            return lProcesados;
+        }
+
         private string cNewName(string cOriginalName)
         {
             string cNewFileName = string.Empty;
@@ -188,6 +290,24 @@ namespace srvFEmiddle.BO
                 {
                     oFtpIn.renameShell(oInfoDoc,sFile, oFiles.sPathCombine(sNewPath, sFile));
                 }
+                oFiles.moveFile(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, sFile), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, System.Configuration.ConfigurationManager.AppSettings["sInternalTempDirectory"]));
+                bResp = true;
+            }
+            catch (Exception ex)
+            {
+                this.oLog.LogError(ex.Message);
+            }
+            return bResp;
+        }
+
+        private bool SFTP_bMoveFile(ooSftpBO oSftpIn, string sOriginalPath, String sNewPath, string sFile, ooInfoDocumentoBE oInfoDoc)
+        {
+            bool bResp = false;
+            try
+            {
+                ooFileBO oFiles = new ooFileBO(); //For combine and remove temporary files.
+                oSftpIn.rename(oFiles.sPathCombine(sOriginalPath, sFile), oFiles.sPathCombine(sNewPath, sFile));
+                oSftpIn.close();
                 oFiles.moveFile(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, sFile), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, System.Configuration.ConfigurationManager.AppSettings["sInternalTempDirectory"]));
                 bResp = true;
             }

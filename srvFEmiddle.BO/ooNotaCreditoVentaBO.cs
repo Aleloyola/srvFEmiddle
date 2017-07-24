@@ -10,12 +10,13 @@ namespace srvFEmiddle.BO
     {
         public override List<string> getLeerDocumentos()
         {
-            return this.leerDocumentos(oInfoNotaCreditoVenta);
+            return oInfoNotaCreditoVenta.bIsSFTP ? this.SFTPleerDocumentos(oInfoNotaCreditoVenta) : this.leerDocumentos(oInfoNotaCreditoVenta);
         }
 
         public override int getMoverDocumentos(List<string> lstFiles)
         {
-            return this.moverDocumentos(oInfoNotaCreditoVenta, lstFiles);
+            return oInfoNotaCreditoVenta.bIsSFTP ? this.SFTPmoverDocumentos(oInfoNotaCreditoVenta, lstFiles) : this.moverDocumentos(oInfoNotaCreditoVenta, lstFiles);
         }
+
     }
 }

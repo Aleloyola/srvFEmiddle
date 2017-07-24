@@ -31,7 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Renci.SshNet">
+      <HintPath>C:\Users\alexi\Documents\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,10 +53,11 @@
     <Compile Include="ooOperacionBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\ooFtpBO.cs" />
+    <Compile Include="Tools\ooSftpBO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\comBusinessBE\comBusinessBE.csproj">
-      <Project>{ECD2DDC2-E0A9-4BED-9795-33B9C4872124}</Project>
+      <Project>{ecd2ddc2-e0a9-4bed-9795-33b9c4872124}</Project>
       <Name>comBusinessBE</Name>
     </ProjectReference>
   </ItemGroup>

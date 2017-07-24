@@ -139,8 +139,9 @@ namespace srvFEmiddle.BO.Tools
             return bResp;
         }
         /* Download File */
-        public void download(string remoteFile, string localFile)
+        public bool download(string remoteFile, string localFile)
         {
+            bool bResult = false;
             try
             {
                 /* Create an FTP Request */
@@ -181,12 +182,13 @@ namespace srvFEmiddle.BO.Tools
                 ftpStream.Close();
                 ftpResponse.Close();
                 ftpRequest = null;
+                bResult = true;
             }
             catch (Exception ex)
             {
                 oLog.LogError(ex.Message);
             }
-            return;
+            return bResult;
         }
 
         public void downloadTest(string remoteFile, string localFile)
