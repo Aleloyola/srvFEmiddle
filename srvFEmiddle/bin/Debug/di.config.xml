@@ -5,10 +5,29 @@
   <object name="pluginComponentesTraspasoDoc" singleton="true" type="System.Collections.Generic.List&lt;comBusinessBE.BI.IOperacion>, mscorlib">
     <constructor-arg>
       <list element-type="comBusinessBE.BI.IOperacion, comBusinessBE">
+        <ref object="pluginFacturaVenta0"/>
         <ref object="pluginFacturaVenta"/>
-        <ref object="pluginNCVenta"/>
+        <!--<ref object="pluginNCVenta"/>-->
       </list>
     </constructor-arg>
+  </object>
+  
+    <object name="pluginFacturaVenta0" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
+        <property name="oInfoFacturaVenta" ref="refParametrosFacturaVenta0" />
+        <property name="oConnectionBD" ref="refConnectionDB" />
+  </object>
+
+  <object id="refParametrosFacturaVenta0"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
+    <property name="sInPath" value="ftp://10.0.1.18/"/>
+    <property name="bIsStandard" value="true"/>
+    <property name="sInPathWork" value="FV/Work/"/>
+    <property name="sInPathProcessed" value="ftp/FV/Processed/"/>
+    <property name="sInPathError" value="ftp/FV/Error/"/>
+    <property name="sInUsuarioFTP" value="ftppi"/>
+    <property name="sInPasswordFTP" value="passwordpi"/>
+    <property name="sOutPath" value="ftp://10.0.1.18/FV/"/>
+    <property name="sOutUsuarioFTP" value="ftppi"/>
+    <property name="sOutPasswordFTP" value="passwordpi"/>
   </object>
   
   <object name="pluginFacturaVenta" singleton="true" type="srvFEmiddle.BO.ooFacturaVentaBO, srvFEmiddle.BO">
@@ -18,12 +37,12 @@
 
   <object id="refParametrosFacturaVenta"  type="comBusinessBE.BE.ooInfoDocumentoBE, comBusinessBE">
     <property name="sInPath" value="ftp://10.0.1.18/"/>
-    <property name="bIsStandard" value="true"/>
+    <property name="bIsNoElectronic" value="true"/>
     <property name="sInPathWork" value="FV/Work/"/>
     <property name="sInPathProcessed" value="ftp/FV/Processed/"/>
     <property name="sInPathError" value="ftp/FV/Error/"/>
-    <property name="sInUsuarioFTP" value="pi"/>
-    <property name="sInPasswordFTP" value="raspberry"/>
+    <property name="sInUsuarioFTP" value="ftppi"/>
+    <property name="sInPasswordFTP" value="passwordpi"/>
     <property name="sOutPath" value="ftp://10.0.1.18/FV/"/>
     <property name="sOutUsuarioFTP" value="ftppi"/>
     <property name="sOutPasswordFTP" value="passwordpi"/>

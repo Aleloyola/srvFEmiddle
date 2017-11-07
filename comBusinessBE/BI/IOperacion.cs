@@ -17,5 +17,7 @@ namespace comBusinessBE.BI
         
         List<string> SFTPleerDocumentos(ooInfoDocumentoBE oInfoDocumentoBE);
         int SFTPmoverDocumentos(ooInfoDocumentoBE oInfoDoc, List<string> lstFiles);
+
+        int moverDocumentosNoElectronicos(ooInfoDocumentoBE oInfoDoc, List<string> lstFiles);
     }
 }

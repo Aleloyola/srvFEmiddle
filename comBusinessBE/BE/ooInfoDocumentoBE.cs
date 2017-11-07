@@ -21,5 +21,6 @@ namespace comBusinessBE.BE
         public bool bIsSFTP { get; set; }
         public string sInPort { get; set; }
         public string sOutPort { get; set; }
+        public bool bIsNoElectronic { get; set; }
     }
 }

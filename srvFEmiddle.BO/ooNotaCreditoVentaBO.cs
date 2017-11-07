@@ -15,7 +15,12 @@ namespace srvFEmiddle.BO
 
         public override int getMoverDocumentos(List<string> lstFiles)
         {
-            return oInfoNotaCreditoVenta.bIsSFTP ? this.SFTPmoverDocumentos(oInfoNotaCreditoVenta, lstFiles) : this.moverDocumentos(oInfoNotaCreditoVenta, lstFiles);
+            if (!oInfoNotaCreditoVenta.bIsNoElectronic)
+            {
+                return oInfoNotaCreditoVenta.bIsSFTP ? this.SFTPmoverDocumentos(oInfoNotaCreditoVenta, lstFiles) : this.moverDocumentos(oInfoNotaCreditoVenta, lstFiles);
+            }
+            else
+                return this.moverDocumentosNoElectronicos(oInfoNotaCreditoVenta, lstFiles);
         }
 
     }

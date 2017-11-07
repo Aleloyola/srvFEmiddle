@@ -251,6 +251,83 @@ namespace srvFEmiddle.BO
             return lProcesados;
         }
 
+        /// <summary>
+        /// Funcion de uso general con la lógica para mover los archivos no electronicos
+        /// </summary>
+        /// <param name="oInfoDoc"></param>
+        /// <param name="lstFiles"></param>
+        /// <returns></returns>
+        public int moverDocumentosNoElectronicos(ooInfoDocumentoBE oInfoDoc, List<string> lstFiles)
+        {
+            int lProcesados = 0;
+            ooFileBO oFiles = new ooFileBO(); //For combine and remove temporary files.
+            ooFtpBO oFtpIn;
+            ooFtpBO oFtpOut;
+            this.oLog.LogInfo(String.Format("Inicio lectura de operaciones de tipo {0} en estado sin procesar.", lstFiles.Count));
+
+            string sDocType = string.Empty; //to be used in foreach flow.
+            string sDocNumber = string.Empty; //IDEM
+
+            foreach (string item in lstFiles)
+            {
+                sDocType = string.Empty;
+                sDocNumber = string.Empty;
+                oFtpIn = new ooFtpBO(oInfoDoc.sInPath, oInfoDoc.sInUsuarioFTP, oInfoDoc.sInPasswordFTP, oLog);
+
+                oFtpOut = new ooFtpBO(oInfoDoc.sOutPath, oInfoDoc.sOutUsuarioFTP, oInfoDoc.sOutPasswordFTP, oLog); //Writting server connection
+                if (item.Length > 0)
+                {
+                    oLog.LogInfo("El archivo a trabajar es:"+item);
+                    try
+                    {
+                        this.oLog.LogInfo("Se está accediendo al host: "+ oInfoDoc.sInPath);
+                        this.oLog.LogInfo("Se esta leyendo el archivo " + oFiles.sPathCombine(oInfoDoc.sInPathWork, item));
+                        //If source is standard, a regular download instruction will be used, else, the shell instruction is needed
+                        bool bDownload = (oInfoDoc.bIsStandard ? oFtpIn.download(oFiles.sPathCombine(oInfoDoc.sInPathWork, item), item) : oFtpIn.downloadShell(oInfoDoc, item));
+
+                        //If filename include document information, then we can continue, else need to be marked as error
+                        if (bDownload)
+                        {
+                            bool bStateUpload = false;
+                            bool bStateDownload = oFtpIn.bCheckFileDownload(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                            if (bStateDownload)
+                            {
+                                bStateUpload = oFtpOut.upload(this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                            }
+                            else
+                            {
+                                this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                oLog.LogInfo("Downloading file error");
+                            }
+
+                            if (bStateUpload)
+                            {
+                                this.oLog.LogInfo("File will be moved");
+                                this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathProcessed, item, oInfoDoc);
+                                lProcesados++;
+                            }
+                            else
+                            {
+                                this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                                oLog.LogInfo("Uploading file error");
+                            }
+                        }
+                        else
+                        {
+                            this.oLog.LogInfo("File don't include document information");
+                            this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                            //I can't mark in DB, because file doesn't have information to identify some register on DB.
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
+                        this.oLog.LogError(String.Format("Se ha producido un error al traspasar el archivo {0}, con la siguiente descripcion: {1}.", item, ex.Message));
+                    }
+                }
+            }
+            return lProcesados;
+        }
         private string cNewName(string cOriginalName)
         {
             string cNewFileName = string.Empty;
