@@ -292,7 +292,7 @@ namespace srvFEmiddle.BO
                             bool bStateDownload = oFtpIn.bCheckFileDownload(oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
                             if (bStateDownload)
                             {
-                                bStateUpload = oFtpOut.upload(this.cNewName(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
+                                bStateUpload = oFtpOut.upload(this.cNewNameNoElectronico(item), oFiles.sPathCombineWin(System.AppDomain.CurrentDomain.BaseDirectory, item));
                             }
                             else
                             {
@@ -316,7 +316,6 @@ namespace srvFEmiddle.BO
                         {
                             this.oLog.LogInfo("File don't include document information");
                             this.bMoveFile(oFtpIn, oInfoDoc.sInPathWork, oInfoDoc.sInPathError, item, oInfoDoc);
-                            //I can't mark in DB, because file doesn't have information to identify some register on DB.
                         }
                     }
                     catch (Exception ex)
@@ -352,6 +351,30 @@ namespace srvFEmiddle.BO
             return cNewFileName;
         }
 
+        private string cNewNameNoElectronico(string cOriginalName)
+        {
+            string cNewFileName = string.Empty;
+            try
+            {
+
+                if (cOriginalName.IndexOf('.') > 0)
+                {
+                    cNewFileName = cOriginalName.Substring(0, cOriginalName.IndexOf('.')) + ".txt";
+                }
+                else
+                {
+                    cNewFileName = cOriginalName + ".txt";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                this.oLog.LogError(ex.Message);
+            }
+            cNewFileName = cNewFileName == string.Empty ? cOriginalName : cNewFileName;
+            this.oLog.LogInfo("File name: " + cNewFileName);
+            return cNewFileName;
+        }
 
         private bool bMoveFile(ooFtpBO oFtpIn, string sOriginalPath, String sNewPath, string sFile, ooInfoDocumentoBE oInfoDoc)
         {

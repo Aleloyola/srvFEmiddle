@@ -41,7 +41,7 @@ namespace srvFEmiddle.BO.Tools
         {
             bool bResp = false;
             String ftpCmnds = "open " + this.cServer(oInfoDoc.sInPath) + "\r\n" + oInfoDoc.sInUsuarioFTP + "\r\n" + oInfoDoc.sInPasswordFTP + "\r\ncd " + oInfoDoc.sInPathWork + "\r\nget " + cFileName + "\r\nclose\r\nquit";
-            //oLog.LogInfo(ftpCmnds);
+            oLog.LogInfo("Commands to shell in download: "+ftpCmnds);
             using (System.IO.StreamWriter sw = new System.IO.StreamWriter(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "tmp.txt")))
             {
                 sw.Write(ftpCmnds);
@@ -70,11 +70,13 @@ namespace srvFEmiddle.BO.Tools
                         //oLog.LogInfo("Ejecuta archivo tmp.txt");
                         sw.WriteLine("ftp -s:tmp.txt");
                         sw.WriteLine("del tmp.txt");
+                        sw.WriteLine("exit");
+                        sw.Close();
                         p.Close();
-                    
                 }
+                
             }
-            
+            p = null;
             bResp = true;
             return bResp;
         }
@@ -86,7 +88,7 @@ namespace srvFEmiddle.BO.Tools
             else oLog.LogInfo("No existe el archivo");
             
             int elapsed = 0;
-            while ((!bResp) && (elapsed < 5000))
+            while ((!bResp) && (elapsed < 2100000))
             {
                 Thread.Sleep(1000);
                 elapsed += 1000;
@@ -94,15 +96,15 @@ namespace srvFEmiddle.BO.Tools
             }
 
             if (File.Exists(localFile)) oLog.LogInfo("Existe el archivo");
-            else oLog.LogInfo("No existe el archivo");
+           else oLog.LogInfo("No existe el archivo");
                 
-            return bResp;
+             return bResp;
         }
         public bool renameShell(ooInfoDocumentoBE oInfoDoc, string cOriginalName, string cNewName)
         {
             bool bResp = false;
             String ftpCmnds = "open " + this.cServer(oInfoDoc.sInPath) + "\r\n" + oInfoDoc.sInUsuarioFTP + "\r\n" + oInfoDoc.sInPasswordFTP + "\r\ncd " + oInfoDoc.sInPathWork + "\r\nrename " + cOriginalName + " " + cNewName + "\r\n DELE " + cOriginalName.Substring(0,cOriginalName.IndexOf('.')) + "\r\nclose\r\nquit";
-            //oLog.LogInfo(ftpCmnds);
+            oLog.LogInfo("Commands to shell in rename: " + ftpCmnds);
             using (System.IO.StreamWriter sw = new System.IO.StreamWriter(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "tmp2.txt")))
             {
                 sw.Write(ftpCmnds);
@@ -131,10 +133,12 @@ namespace srvFEmiddle.BO.Tools
                         //oLog.LogInfo("Ejecuta archivo tmp.txt");
                         sw.WriteLine("ftp -s:tmp2.txt");
                         sw.WriteLine("del tmp2.txt");
+                        sw.WriteLine("exit");
+                        sw.Close();
                         p.Close();
-                    
                 }
             }
+            p = null;
             bResp = true;
             return bResp;
         }
